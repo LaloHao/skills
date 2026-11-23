@@ -42,8 +42,6 @@ The repo is also a plugin marketplace. Inside Claude Code:
 /plugin install personal-skills@personal-skills
 ```
 
-To update later, run `/plugin marketplace update personal-skills`.
-
 ### Claude Code: manually
 
 Copy or symlink the skill folder into your personal skills directory (available in every project):
@@ -64,6 +62,19 @@ Or, to enable it for a single project only, place it in that project's `.claude/
    This creates `dist/<skill>.zip` for every skill.
 2. In Claude, go to **Settings → Capabilities → Skills** and upload `dist/tutor.zip`.
 3. Make sure the skill is toggled on.
+
+## Updating
+
+Changes reach other machines once they're pushed to GitHub. How you pull them in depends on how you installed:
+
+| Installed with | How to update |
+|---|---|
+| `npx skills` | `npx skills check` to see what's new, `npx skills update` to install it. The CLI copies files, so it never updates on its own. |
+| Claude Code plugin | `/plugin marketplace update personal-skills`, then restart Claude Code. |
+| `git clone` + symlink | `git -C <path-to-clone> pull`. The symlink picks up the change right away. |
+| Claude apps | Re-run `./scripts/package.sh` and upload the new zip in **Settings → Capabilities → Skills**, replacing the old one. Skills belong to your account, so every device gets the new version. |
+
+On your own machines, `git clone` + symlink is the easiest to keep current. `npx skills` is better for sharing with other people.
 
 ## Usage: `tutor`
 
@@ -128,4 +139,7 @@ scripts/
 
 1. Create `skills/<name>/SKILL.md` with `name` and `description` in the frontmatter. The `name` must match the folder name.
 2. Add it to the table above.
-3. Commit, and re-package it if you use it in the Claude apps.
+3. Bump `version` in `.claude-plugin/plugin.json` so plugin installs detect the update.
+4. Commit and push, and re-package it if you use it in the Claude apps.
+
+The same goes for changes to an existing skill: bump the version, then commit and push.
