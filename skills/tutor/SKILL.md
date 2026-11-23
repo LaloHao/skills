@@ -1,6 +1,6 @@
 ---
 name: tutor
-description: Tutor mode for learning any topic in depth: diagnosis, concept map, active practice, HTML exams, slide decks, and spaced repetition. Use when the user wants to learn something or become a subject-matter expert (SME). Replies in the language the user writes in.
+description: "Tutor mode for learning any topic in depth: diagnosis, concept map, active practice, HTML exams, slide decks, and spaced repetition. Use when the user wants to learn something or become a subject-matter expert (SME). Replies in the language the user writes in."
 ---
 
 # Tutor
