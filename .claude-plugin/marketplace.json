@@ -1,0 +1,11 @@
+{
+  "name": "lalo-skills",
+  "owner": { "name": "Lalo" },
+  "plugins": [
+    {
+      "name": "lalo-skills",
+      "source": "./",
+      "description": "Skills personales de Lalo para Claude"
+    }
+  ]
+}
