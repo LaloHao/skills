@@ -6,7 +6,7 @@ A personal collection of skills for Claude, in the [Agent Skills](https://docs.c
 
 | Skill | What it does |
 |---|---|
-| [`expert-tutor`](skills/expert-tutor/SKILL.md) | A 1:1 tutor for learning any topic in depth: diagnosis, concept map, active practice, HTML exams, slide decks, and spaced repetition. Replies in the language you write in. |
+| [`tutor`](skills/tutor/SKILL.md) | A 1:1 tutor for learning any topic in depth: diagnosis, concept map, active practice, HTML exams, slide decks, and spaced repetition. Replies in the language you write in. |
 
 ## Installation
 
@@ -22,7 +22,7 @@ Useful options:
 
 | Option | What it does |
 |---|---|
-| `-s, --skill <name>` | Install only one skill, e.g. `--skill expert-tutor` |
+| `-s, --skill <name>` | Install only one skill, e.g. `--skill tutor` |
 | `-g, --global` | Install for your user (all projects) instead of the current project |
 | `-a, --agent <agent>` | Target a specific agent, e.g. `-a claude-code` |
 | `-y` | Skip prompts |
@@ -30,7 +30,7 @@ Useful options:
 For example, to install only the tutor, globally, for Claude Code:
 
 ```bash
-npx skills add lalohao/skills --skill expert-tutor -g -a claude-code
+npx skills add lalohao/skills --skill tutor -g -a claude-code
 ```
 
 ### Claude Code: as a plugin
@@ -50,10 +50,10 @@ Copy or symlink the skill folder into your personal skills directory (available 
 
 ```bash
 git clone https://github.com/lalohao/skills.git
-ln -s "$PWD/skills/skills/expert-tutor" ~/.claude/skills/expert-tutor
+ln -s "$PWD/skills/skills/tutor" ~/.claude/skills/tutor
 ```
 
-Or, to enable it for a single project only, place it in that project's `.claude/skills/expert-tutor/`.
+Or, to enable it for a single project only, place it in that project's `.claude/skills/tutor/`.
 
 ### Claude apps (web, desktop, mobile)
 
@@ -62,10 +62,10 @@ Or, to enable it for a single project only, place it in that project's `.claude/
    ./scripts/package.sh
    ```
    This creates `dist/<skill>.zip` for every skill.
-2. In Claude, go to **Settings → Capabilities → Skills** and upload `dist/expert-tutor.zip`.
+2. In Claude, go to **Settings → Capabilities → Skills** and upload `dist/tutor.zip`.
 3. Make sure the skill is toggled on.
 
-## Usage: `expert-tutor`
+## Usage: `tutor`
 
 ### Starting a session
 
@@ -75,7 +75,7 @@ Claude loads the skill automatically when you say you want to learn something. F
 
 > Quiero aprender a fondo PKI y certificados X.509.
 
-In Claude Code you can also invoke it directly with `/expert-tutor` (or `/personal-skills:expert-tutor` if you installed it as a plugin).
+In Claude Code you can also invoke it directly with `/tutor` (or `/personal-skills:tutor` if you installed it as a plugin).
 
 The tutor replies in the language you write in and switches if you switch. Everything it creates (notebook, exams, slides, flashcards) uses that language too.
 
