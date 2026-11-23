@@ -10,24 +10,47 @@ A personal collection of skills for Claude, in the [Agent Skills](https://docs.c
 
 ## Installation
 
-### Claude Code: as a plugin (recommended)
+### With `npx skills` (recommended)
+
+The [`skills`](https://github.com/vercel-labs/skills) CLI installs skills straight from this GitHub repo into Claude Code and other agents (Cursor, OpenCode, …). Nothing is published to npm; `npx` just runs the CLI.
+
+```bash
+npx skills add lalohao/skills
+```
+
+Useful options:
+
+| Option | What it does |
+|---|---|
+| `-s, --skill <name>` | Install only one skill, e.g. `--skill expert-tutor` |
+| `-g, --global` | Install for your user (all projects) instead of the current project |
+| `-a, --agent <agent>` | Target a specific agent, e.g. `-a claude-code` |
+| `-y` | Skip prompts |
+
+For example, to install only the tutor, globally, for Claude Code:
+
+```bash
+npx skills add lalohao/skills --skill expert-tutor -g -a claude-code
+```
+
+### Claude Code: as a plugin
 
 The repo is also a plugin marketplace. Inside Claude Code:
 
 ```
-/plugin marketplace add <owner>/<repo>
+/plugin marketplace add lalohao/skills
 /plugin install personal-skills@personal-skills
 ```
 
-Replace `<owner>/<repo>` with the GitHub path of this repository (or a local path to your clone). To update later, run `/plugin marketplace update personal-skills`.
+To update later, run `/plugin marketplace update personal-skills`.
 
 ### Claude Code: manually
 
 Copy or symlink the skill folder into your personal skills directory (available in every project):
 
 ```bash
-git clone https://github.com/<owner>/<repo>.git
-ln -s "$PWD/<repo>/skills/expert-tutor" ~/.claude/skills/expert-tutor
+git clone https://github.com/lalohao/skills.git
+ln -s "$PWD/skills/skills/expert-tutor" ~/.claude/skills/expert-tutor
 ```
 
 Or, to enable it for a single project only, place it in that project's `.claude/skills/expert-tutor/`.
