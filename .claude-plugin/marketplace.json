@@ -1,11 +1,11 @@
 {
-  "name": "lalo-skills",
+  "name": "personal-skills",
   "owner": { "name": "Lalo" },
   "plugins": [
     {
-      "name": "lalo-skills",
+      "name": "personal-skills",
       "source": "./",
-      "description": "Skills personales de Lalo para Claude"
+      "description": "A personal collection of Claude skills"
     }
   ]
 }

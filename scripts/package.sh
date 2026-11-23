@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Empaqueta cada skill de skills/ como dist/<skill>.zip para subirla a claude.ai.
+# Packages each skill in skills/ as dist/<skill>.zip for upload to claude.ai.
 set -euo pipefail
 
 root="$(cd "$(dirname "$0")/.." && pwd)"
@@ -8,7 +8,7 @@ mkdir -p "$root/dist"
 for dir in "$root"/skills/*/; do
   name="$(basename "$dir")"
   if [[ ! -f "$dir/SKILL.md" ]]; then
-    echo "omitida: $name (sin SKILL.md)" >&2
+    echo "skipped: $name (no SKILL.md)" >&2
     continue
   fi
   rm -f "$root/dist/$name.zip"
